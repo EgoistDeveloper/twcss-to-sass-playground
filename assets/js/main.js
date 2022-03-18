@@ -257,6 +257,8 @@ new Vue({
         } else if (tab == 'outputSassTab') {
           this.outputSassMonacoEditor.layout()
         }
+
+        store.set('lastOutputTab', tab)
       }, 250)
     },
 
@@ -279,6 +281,10 @@ new Vue({
       this.installTailwindSassConfigs()
 
       this.watchBrowserTheme()
+
+      // restore last output tab state
+      this.onOutputTabSwitch(store.get('lastOutputTab'))
+      this.outputTabModel = store.get('lastOutputTab') || 'outputHtmlTab'
     }, 250)
   },
 })
