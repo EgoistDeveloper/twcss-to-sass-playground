@@ -1,3 +1,6 @@
+html, body {
+  overflow: hidden;
+}
 [v-cloak] > * {
   display: none;
 }
@@ -17,7 +20,8 @@
 }
 
 .code-container {
-  height: 74vh;
+  /* height: 66vh; */
+  height: calc(100vh - 320px);
   width: 100%;
   padding-top: 10px;
   margin-bottom: 10px;
@@ -117,4 +121,8 @@ header.v-toolbar {
 /* top slider group */
 .top-v-slide-group .v-slide-group__wrapper {
   border-bottom: none !important;
+}
+
+.dialog-row {
+  margin: 0px !important;
 }

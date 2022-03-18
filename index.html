@@ -53,20 +53,34 @@
                     </v-col>
             </v-toolbar>
 
-            <!-- Action Buttons -->
-            <v-slide-group multiple show-arrows class="top-v-slide-group mt-5 mx-auto">
-              <v-slide-item key="1" v-slot="{ active, toggle }">
-                <v-btn class="mx-2 font-weight-light text-capitalize" depressed rounded @click="formatHtml()">
-                  <svg class="mdi-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                    width="24" height="24" viewBox="0 0 24 24">
-                    <path
-                      d="M15.67,4.42C14.7,3.84 13.58,3.54 12.45,3.56C10.87,3.56 9.66,4.34 9.66,5.56C9.66,6.96 11,7.47 13,8.14C15.5,8.95 17.4,9.97 17.4,12.38C17.36,13.69 16.69,14.89 15.6,15.61C16.25,16.22 16.61,17.08 16.6,17.97C16.6,20.79 14,21.97 11.5,21.97C10.04,22.03 8.59,21.64 7.35,20.87L8,19.34C9.04,20.05 10.27,20.43 11.53,20.44C13.25,20.44 14.53,19.66 14.53,18.24C14.53,17 13.75,16.31 11.25,15.45C8.5,14.5 6.6,13.5 6.6,11.21C6.67,9.89 7.43,8.69 8.6,8.07C7.97,7.5 7.61,6.67 7.6,5.81C7.6,3.45 9.77,2 12.53,2C13.82,2 15.09,2.29 16.23,2.89L15.67,4.42M11.35,13.42C12.41,13.75 13.44,14.18 14.41,14.71C15.06,14.22 15.43,13.45 15.41,12.64C15.41,11.64 14.77,10.76 13,10.14C11.89,9.77 10.78,9.31 9.72,8.77C8.97,9.22 8.5,10.03 8.5,10.91C8.5,11.88 9.23,12.68 11.35,13.42Z" />
+            <v-container class="d-flex my-autom mt-5" fluid="true">
+              <!-- Action Buttons -->
+              <v-slide-group multiple show-arrows class="top-v-slide-group mx-auto" justify="center">
+                <v-slide-item key="1" v-slot="{ active, toggle }">
+                  <v-btn class="mx-2 font-weight-light text-capitalize" depressed rounded @click="formatHtml()">
+                    <svg class="mdi-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        d="M15.67,4.42C14.7,3.84 13.58,3.54 12.45,3.56C10.87,3.56 9.66,4.34 9.66,5.56C9.66,6.96 11,7.47 13,8.14C15.5,8.95 17.4,9.97 17.4,12.38C17.36,13.69 16.69,14.89 15.6,15.61C16.25,16.22 16.61,17.08 16.6,17.97C16.6,20.79 14,21.97 11.5,21.97C10.04,22.03 8.59,21.64 7.35,20.87L8,19.34C9.04,20.05 10.27,20.43 11.53,20.44C13.25,20.44 14.53,19.66 14.53,18.24C14.53,17 13.75,16.31 11.25,15.45C8.5,14.5 6.6,13.5 6.6,11.21C6.67,9.89 7.43,8.69 8.6,8.07C7.97,7.5 7.61,6.67 7.6,5.81C7.6,3.45 9.77,2 12.53,2C13.82,2 15.09,2.29 16.23,2.89L15.67,4.42M11.35,13.42C12.41,13.75 13.44,14.18 14.41,14.71C15.06,14.22 15.43,13.45 15.41,12.64C15.41,11.64 14.77,10.76 13,10.14C11.89,9.77 10.78,9.31 9.72,8.77C8.97,9.22 8.5,10.03 8.5,10.91C8.5,11.88 9.23,12.68 11.35,13.42Z" />
                     </svg>
 
-                  Format HTML
-                </v-btn>
-              </v-slide-item>
-            </v-slide-group>
+                    Format HTML
+                  </v-btn>
+                </v-slide-item>
+              </v-slide-group>
+
+              <!-- Settings -->
+              <v-btn class="mx-2 font-weight-light text-capitalize justify-space-around" depressed rounded
+                @click="optionsDialog = true" justify="center">
+                <svg class="mdi-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    d="M8 13C6.14 13 4.59 14.28 4.14 16H2V18H4.14C4.59 19.72 6.14 21 8 21S11.41 19.72 11.86 18H22V16H11.86C11.41 14.28 9.86 13 8 13M8 19C6.9 19 6 18.1 6 17C6 15.9 6.9 15 8 15S10 15.9 10 17C10 18.1 9.1 19 8 19M19.86 6C19.41 4.28 17.86 3 16 3S12.59 4.28 12.14 6H2V8H12.14C12.59 9.72 14.14 11 16 11S19.41 9.72 19.86 8H22V6H19.86M16 9C14.9 9 14 8.1 14 7C14 5.9 14.9 5 16 5S18 5.9 18 7C18 8.1 17.1 9 16 9Z" />
+                  </svg>
+
+                  Options
+              </v-btn>
+            </v-container>
 
             <!-- Main Container -->
             <v-main class="my-3">
@@ -161,6 +175,97 @@
                 </v-btn>
               </template>
             </v-snackbar>
+
+            <v-row justify="center" class="dialog-row">
+              <v-dialog v-model="optionsDialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+                <v-card>
+                  <!-- Top Bar -->
+                  <v-toolbar dark color="dark">
+                    <v-toolbar-title>
+                      Converter Options
+                    </v-toolbar-title>
+
+                    <v-spacer></v-spacer>
+
+                    <v-toolbar-items>
+                      <v-btn icon dark @click="saveConfigs()">
+                        <svg class="mdi-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>
+                      </v-btn>
+                    </v-toolbar-items>
+                  </v-toolbar>
+
+                  <!-- Option Groups-->
+                  <v-list three-line subheader>
+                    <!-- General Options -->
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          General
+                        </v-list-item-title>
+
+                        <v-subheader></v-subheader>
+
+                        <v-container class="px-3" fluid>
+                          <!-- #1 -->
+                          <v-row>
+                            <v-col cols="2" class="px-0">
+                              <v-subheader>
+                                Format HTML & SASS Output
+                              </v-subheader>
+                            </v-col>
+
+                            <v-col cols="3">
+                              <v-switch v-model="converterConfigs.formatOutput"></v-switch>
+                            </v-col>
+                          </v-row>
+
+                          <!-- #2 -->
+                          <v-row>
+                            <v-col cols="2" class="px-0">
+                              <v-subheader>
+                                Use Comments as Class Name
+                              </v-subheader>
+                            </v-col>
+
+                            <v-col cols="3">
+                              <v-switch v-model="converterConfigs.useCommentBlocksAsClassName"></v-switch>
+                            </v-col>
+                          </v-row>
+
+                          <!-- #3 -->
+                          <v-row>
+                            <v-col cols="2" class="px-0">
+                              <v-subheader>
+                                Print Comments
+                              </v-subheader>
+                            </v-col>
+
+                            <v-col cols="3">
+                              <v-switch v-model="converterConfigs.printComments"></v-switch>
+                            </v-col>
+                          </v-row>
+
+                          <!-- #4 -->
+                          <v-row>
+                            <v-col cols="2" class="px-0">
+                              <v-subheader>
+                                Max Class Name Length
+                              </v-subheader>
+                            </v-col>
+
+                            <v-col cols="3">
+                              <v-text-field v-model="converterConfigs.maxClassNameLength" label="Characters"></v-text-field>
+                            </v-col>
+                          </v-row>
+                        </v-container>
+                      </v-list-item-content>
+                    </v-list-item>
+
+                    <v-divider></v-divider>
+                  </v-list>
+                </v-card>
+              </v-dialog>
+            </v-row>
         </v-app>
     </div>
 
