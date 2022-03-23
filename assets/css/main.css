@@ -4,7 +4,7 @@
 
 [v-cloak]::before {
   /* content required for v-cloak */
-  content: 'loading…';
+  content: "loading…";
 
   /* but we need to hide for actual spinner */
   opacity: 0;
@@ -17,7 +17,6 @@
 }
 
 .code-container {
-  /* height: 66vh; */
   height: calc(100vh - 320px);
   width: 100%;
   padding-top: 10px;

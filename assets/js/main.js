@@ -37,7 +37,8 @@ new Vue({
       formatOutput: true,
       useCommentBlocksAsClassName: true,
       maxClassNameLength: 50,
-      printComments: true,
+      printHtmlComments: true,
+      printSassComments: true,
       classNameOptions: {
         lowercase: true,
         replaceWith: "-",
@@ -45,6 +46,10 @@ new Vue({
         suffix: "",
       },
     },
+
+    // twcss converter config version
+    // this required for next config updates
+    configsVersion: '1.1'
   },
 
   methods: {
@@ -319,6 +324,13 @@ new Vue({
       // restore last output tab state
       this.onOutputTabSwitch(store.get("lastOutputTab"));
       this.outputTabModel = store.get("lastOutputTab") || "outputHtmlTab";
+
+      // verify configs
+      if (store.get("lastOutputTab") && store.get("configsVersion") !== this.configsVersion) {
+        store.set("configsVersion", this.configsVersion);
+
+        store.set("userOptions", Object.assign(store.get("userOptions"), this.converterConfigs));
+      }
     }, 250);
   },
 });
