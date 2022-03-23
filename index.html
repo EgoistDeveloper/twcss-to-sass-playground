@@ -236,16 +236,29 @@
                           <v-row>
                             <v-col cols="2" class="px-0">
                               <v-subheader>
-                                Print Comments
+                                Print HTML Comments
                               </v-subheader>
                             </v-col>
 
                             <v-col cols="3">
-                              <v-switch v-model="converterConfigs.printComments"></v-switch>
+                              <v-switch v-model="converterConfigs.printHtmlComments"></v-switch>
                             </v-col>
                           </v-row>
 
                           <!-- #4 -->
+                          <v-row>
+                            <v-col cols="2" class="px-0">
+                              <v-subheader>
+                                Print SASS Comments
+                              </v-subheader>
+                            </v-col>
+
+                            <v-col cols="3">
+                              <v-switch v-model="converterConfigs.printSassComments"></v-switch>
+                            </v-col>
+                          </v-row>
+
+                          <!-- #5 -->
                           <v-row>
                             <v-col cols="2" class="px-0">
                               <v-subheader>
