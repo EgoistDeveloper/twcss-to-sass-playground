@@ -39,6 +39,7 @@ new Vue({
       maxClassNameLength: 50,
       printHtmlComments: true,
       printSassComments: true,
+      preventDuplicateClasses: true,
       classNameOptions: {
         lowercase: true,
         replaceWith: "-",
@@ -49,7 +50,7 @@ new Vue({
 
     // twcss converter config version
     // this required for next config updates
-    configsVersion: '1.1'
+    configsVersion: "1.2",
   },
 
   methods: {
@@ -289,7 +290,9 @@ new Vue({
 
       const userOptions = store.get("userOptions");
 
-      if (JSON.stringify(userOptions) != JSON.stringify(this.converterConfigs)) {
+      if (
+        JSON.stringify(userOptions) != JSON.stringify(this.converterConfigs)
+      ) {
         store.set("userOptions", this.converterConfigs);
 
         this.convert();
@@ -308,6 +311,19 @@ new Vue({
   mounted: function () {
     document.querySelector(".loader").remove();
 
+    // verify configs
+    if (
+      store.get("lastOutputTab") &&
+      store.get("configsVersion") !== this.configsVersion
+    ) {
+      store.set("configsVersion", this.configsVersion);
+
+      store.set("userOptions", {
+        ...this.converterConfigs,
+        ...store.get("userOptions"),
+      });
+    }
+
     // apply user configs
     const userOptions = store.get("userOptions");
 
@@ -324,13 +340,6 @@ new Vue({
       // restore last output tab state
       this.onOutputTabSwitch(store.get("lastOutputTab"));
       this.outputTabModel = store.get("lastOutputTab") || "outputHtmlTab";
-
-      // verify configs
-      if (store.get("lastOutputTab") && store.get("configsVersion") !== this.configsVersion) {
-        store.set("configsVersion", this.configsVersion);
-
-        store.set("userOptions", Object.assign(store.get("userOptions"), this.converterConfigs));
-      }
     }, 250);
   },
 });

@@ -270,6 +270,19 @@
                               <v-text-field v-model="converterConfigs.maxClassNameLength" label="Characters"></v-text-field>
                             </v-col>
                           </v-row>
+
+                          <!-- #5 -->
+                          <v-row>
+                            <v-col cols="2" class="px-0">
+                              <v-subheader>
+                                Prevent Duplicate Classes in Same Level
+                              </v-subheader>
+                            </v-col>
+
+                            <v-col cols="3">
+                              <v-switch v-model="converterConfigs.preventDuplicateClasses"></v-switch>
+                            </v-col>
+                          </v-row>
                         </v-container>
                       </v-list-item-content>
                     </v-list-item>
