@@ -144,6 +144,10 @@
                               <v-tab href="#outputSassTab" @click="onOutputTabSwitch('outputSassTab')">
                                 SASS
                               </v-tab>
+
+                              <small class="grey--text execution-time" v-if="executionTime">
+                                Converted in {{ executionTime }}
+                              </small>
                             </v-tabs>
 
                             <v-tabs-items v-model="outputTabModel">

@@ -51,6 +51,8 @@ new Vue({
     // twcss converter config version
     // this required for next config updates
     configsVersion: "1.2",
+
+    executionTime: null
   },
 
   methods: {
@@ -78,6 +80,8 @@ new Vue({
         if (converterResult) {
           this.outputHtmlMonacoEditor.getModel().setValue(converterResult.html);
           this.outputSassMonacoEditor.getModel().setValue(converterResult.sass);
+
+          this.executionTime = converterResult.executionTime;
 
           store.set("userTemplate", {
             template: template,
