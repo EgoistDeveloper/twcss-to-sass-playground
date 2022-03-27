@@ -40,6 +40,7 @@ new Vue({
       printHtmlComments: true,
       printSassComments: true,
       preventDuplicateClasses: true,
+      orderByTailwindClasses: true,
       classNameOptions: {
         lowercase: true,
         replaceWith: "-",
@@ -50,7 +51,7 @@ new Vue({
 
     // twcss converter config version
     // this required for next config updates
-    configsVersion: "1.2",
+    configsVersion: "1.3",
 
     executionTime: null
   },
