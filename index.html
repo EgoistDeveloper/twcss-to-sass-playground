@@ -107,6 +107,21 @@
                                 <v-tab href="#inputHtmlTab" @click="onInputTabSwitch('inputHtmlTab')">
                                   HTML
                                 </v-tab>
+
+                                <!-- Tab Bar Actions -->
+                                <div class="tab-bar-actions">
+                                  <v-tooltip bottom>
+                                    <template v-slot:activator="{ on, attrs }">
+                                      <button v-bind="attrs" v-on="on" @click="pasteTemplate()">
+                                        <svg class="mdi-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M19,20H5V4H7V7H17V4H19M12,2A1,1 0 0,1 13,3A1,1 0 0,1 12,4A1,1 0 0,1 11,3A1,1 0 0,1 12,2M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V4A2,2 0 0,0 19,2Z" /></svg>
+                                      </button>
+                                    </template>
+
+                                    <span>
+                                      Paste Template
+                                    </span>
+                                  </v-tooltip>
+                                </div>
                               </v-tabs>
 
                               <v-tabs-items v-model="inputTabModel">
@@ -145,9 +160,24 @@
                                 SASS
                               </v-tab>
 
-                              <small class="grey--text execution-time" v-if="executionTime">
-                                Converted in {{ executionTime }}
-                              </small>
+                              <!-- Tab Bar Actions -->
+                              <div class="tab-bar-actions">
+                                <v-tooltip bottom>
+                                  <template v-slot:activator="{ on, attrs }">
+                                    <button id="copyOutputTemplate" v-bind="attrs" v-on="on">
+                                      <svg class="mdi-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" /></svg>
+                                    </button>
+                                  </template>
+
+                                  <span>
+                                    Copy {{ outputTabModel == 'outputHtmlTab' ? 'HTML' : 'SASS' }} Template
+                                  </span>
+                                </v-tooltip>
+
+                                <small class="grey--text execution-time" v-if="executionTime">
+                                  Converted in {{ executionTime }}
+                                </small>
+                              </div>
                             </v-tabs>
 
                             <v-tabs-items v-model="outputTabModel">
@@ -321,8 +351,11 @@
     <!-- Vuetify -->
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js"></script>
 
-    <!-- store -->
+    <!-- store.js -->
     <script src="https://unpkg.com/store@latest/dist/store.modern.min.js"></script>
+
+    <!-- clipboard.js -->
+    <script src="https://unpkg.com/clipboard@latest/dist/clipboard.min.js"></script>
 
     <!-- twcss-to-sass -->
     <script src="https://unpkg.com/@egoistdeveloper/twcss-to-sass@latest/dist/umd/index.js?v=18032022"></script>

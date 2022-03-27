@@ -311,6 +311,20 @@ new Vue({
         }, 5000);
       }
     },
+
+    /** get template from clipboard then convert it */
+    pasteTemplate: async function () {
+      const clipboardTemplate = await navigator.clipboard.readText();
+
+      if (clipboardTemplate.length) {
+        const currentTemplate = this.inputHtmlMonacoEditor.getValue();
+
+        if (clipboardTemplate != currentTemplate) {
+          this.inputHtmlMonacoEditor.getModel().setValue(clipboardTemplate);
+
+        }
+      }
+    }
   },
 
   mounted: function () {
@@ -345,6 +359,16 @@ new Vue({
       // restore last output tab state
       this.onOutputTabSwitch(store.get("lastOutputTab"));
       this.outputTabModel = store.get("lastOutputTab") || "outputHtmlTab";
+
+      new ClipboardJS('#copyOutputTemplate', {
+        text: () => {
+          if (this.outputTabModel == 'outputHtmlTab') {
+            return this.outputHtmlMonacoEditor.getValue();
+          } else if (this.outputTabModel == 'outputSassTab') {
+            return this.outputSassMonacoEditor.getValue();
+          }
+        }
+    });
     }, 250);
   },
 });
